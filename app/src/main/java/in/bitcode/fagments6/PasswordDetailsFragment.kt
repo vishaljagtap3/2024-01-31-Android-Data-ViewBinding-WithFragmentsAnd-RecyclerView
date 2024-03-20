@@ -1,7 +1,10 @@
 package `in`.bitcode.fagments6
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -25,8 +28,13 @@ class PasswordDetailsFragment : BottomSheetDialogFragment(){
 
         initViews(view)
         bindDataToViews()
+        setHasOptionsMenu(true)
 
         return view
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
     private fun bindDataToViews() {
@@ -42,6 +50,10 @@ class PasswordDetailsFragment : BottomSheetDialogFragment(){
                 PasswordModel.CATEGORY_JOB_PORTAL -> "Job Portal"
                 else -> "General"
             }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
     private fun initViews(view : View) {
